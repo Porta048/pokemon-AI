@@ -163,10 +163,18 @@ class PyTorchGameBoyAI:
             # Combo utili
             [WindowEvent.PRESS_BUTTON_A, WindowEvent.PRESS_BUTTON_A],  # 9: Doppio A
             [WindowEvent.PRESS_BUTTON_B, WindowEvent.PRESS_BUTTON_B],  # 10: Doppio B
+            # Combo direzionali
+            [WindowEvent.PRESS_ARROW_UP, WindowEvent.PRESS_BUTTON_A],    # 11: Su + A
+            [WindowEvent.PRESS_ARROW_DOWN, WindowEvent.PRESS_BUTTON_A],  # 12: Giù + A
+            [WindowEvent.PRESS_ARROW_LEFT, WindowEvent.PRESS_BUTTON_A],  # 13: Sinistra + A
+            [WindowEvent.PRESS_ARROW_RIGHT, WindowEvent.PRESS_BUTTON_A], # 14: Destra + A
+            [WindowEvent.PRESS_ARROW_UP, WindowEvent.PRESS_BUTTON_B],    # 15: Su + B
+            [WindowEvent.PRESS_ARROW_DOWN, WindowEvent.PRESS_BUTTON_B],  # 16: Giù + B
         ]
         
         self.action_names = ['Niente', 'Su', 'Giù', 'Sinistra', 'Destra', 
-                            'A', 'B', 'Start', 'Select', '2xA', '2xB']
+                            'A', 'B', 'Start', 'Select', '2xA', '2xB',
+                            'Su+A', 'Giù+A', 'Sinistra+A', 'Destra+A', 'Su+B', 'Giù+B']
         
         # Release map
         self.release_map = {
@@ -449,7 +457,7 @@ class PyTorchGameBoyAI:
                 action = random.choice(available)
             else:
                 # Esplorazione bilanciata
-                weights = [0.05, 0.15, 0.15, 0.15, 0.15, 0.15, 0.1, 0.05, 0.05, 0.0, 0.0]
+                weights = [0.05, 0.15, 0.15, 0.15, 0.15, 0.15, 0.1, 0.05, 0.05, 0.0, 0.0, 0.05, 0.05, 0.05, 0.05, 0.03, 0.03]
                 action = random.choices(range(len(self.actions)), weights=weights[:len(self.actions)])[0]
         else:
             # Sfruttamento con rete neurale
