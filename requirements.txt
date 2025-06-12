@@ -1,0 +1,6 @@
+pyboy
+numpy
+Pillow
+keyboard
+torch
+torchvision --index-url https://download.pytorch.org/whl/cpu
