@@ -1030,6 +1030,25 @@ class PokemonAI:
         self.action_history.append(action)
         return action
     
+    def intelligent_unstuck(self):
+        """Sistema avanzato per sbloccarsi"""
+        if self.stuck_counter > 100:
+            strategies = [
+                # Strategia 1: Prova sequenza di azioni casuali
+                lambda: [random.choice(range(len(self.actions))) for _ in range(10)],
+                # Strategia 2: Torna all'ultimo checkpoint
+                lambda: self.load_last_checkpoint() if self.checkpoint_states else None,
+                # Strategia 3: Apri e chiudi menu
+                lambda: [7, 0, 0, 6],  # Start, wait, wait, B
+                # Strategia 4: Movimento in tutte le direzioni
+                lambda: [1, 2, 3, 4, 5, 6]
+            ]
+            
+            strategy = strategies[self.stuck_counter // 100 % len(strategies)]
+            return strategy()
+        
+        return None
+    
     def remember(self, state, action, reward, next_state, done):
         """Salva esperienza con priorità"""
         if torch_available and isinstance(state, torch.Tensor):
@@ -1116,6 +1135,26 @@ class PokemonAI:
             for target_param, param in zip(self.target_model.parameters(), self.model.parameters()):
                 target_param.data.copy_(tau * param.data + (1.0 - tau) * target_param.data)
     
+    def cleanup_memory(self):
+        """Pulizia periodica della memoria per performance"""
+        # Rimuovi esperienze duplicate
+        seen = set()
+        unique_memory = []
+        
+        for exp in self.memory:
+            exp_hash = hash((exp[1], exp[2], exp[4]))  # action, reward, done
+            if exp_hash not in seen:
+                seen.add(exp_hash)
+                unique_memory.append(exp)
+        
+        self.memory = deque(unique_memory, maxlen=self.memory.maxlen)
+        
+        # Mantieni solo esperienze con reward significativi nella priority memory
+        self.priority_memory = deque(
+            [exp for exp in self.priority_memory if abs(exp[2]) > 1.0],
+            maxlen=self.priority_memory.maxlen
+        )
+    
     def _save_checkpoint(self, state):
         """Salva checkpoint per backtracking"""
         checkpoint_id = len(self.checkpoint_states)
@@ -1137,6 +1176,21 @@ class PokemonAI:
                 print(f"📂 Caricati {len(self.checkpoint_states)} checkpoints")
             except:
                 self.checkpoint_states = {}
+    
+    def save_game_state(self, slot=0):
+        """Salva lo stato corrente del gioco"""
+        state_path = os.path.join(self.save_dir, f"savestate_{slot}.state")
+        with open(state_path, "wb") as f:
+            f.write(self.pyboy.save_state())
+        print(f"💾 Savestate salvato nello slot {slot}")
+    
+    def load_game_state(self, slot=0):
+        """Carica uno stato di gioco salvato"""
+        state_path = os.path.join(self.save_dir, f"savestate_{slot}.state")
+        if os.path.exists(state_path):
+            with open(state_path, "rb") as f:
+                self.pyboy.load_state(f)
+            print(f"📂 Savestate caricato dallo slot {slot}")
     
     def _save_model(self):
         """Salva modello e stato"""
