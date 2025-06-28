@@ -1,0 +1,62 @@
+class PokemonAI:
+    """AI specializzata per Pokemon"""
+    
+    def __init__(self, rom_path, headless=False):
+        # ... codice init ...
+        
+    def _init_or_load_model(self):
+        # ... codice ...
+        
+    def _get_screen_tensor(self):
+        # ... codice ...
+        
+    # ... altri metodi ...
+    
+    def update_target_model(self):
+        """Soft update del target model"""
+        if self.model is not None and self.target_model is not None:
+            tau = 0.005
+            for target_param, param in zip(self.target_model.parameters(), self.model.parameters()):
+                target_param.data.copy_(tau * param.data + (1.0 - tau) * target_param.data)
+    
+    # IMPORTANTE: Da qui in poi, TUTTI i metodi devono essere indentati di 4 spazi!
+    
+    def _save_checkpoint(self, state):
+        """Salva checkpoint per backtracking"""
+        # ... codice ...
+    
+    def _load_checkpoints(self):
+        """Carica checkpoints salvati"""
+        # ... codice ...
+    
+    def save_game_state(self, slot=0):
+        """Salva lo stato corrente del gioco"""
+        # ... codice ...
+    
+    # ... tutti gli altri metodi incluso _load_stats ...
+    
+    def _load_stats(self):
+        """Carica statistiche Pokemon"""
+        if os.path.exists(self.stats_path):
+            try:
+                with open(self.stats_path, 'r') as f:
+                    return json.load(f)
+            except Exception as e:
+                print(f"⚠️ Errore caricamento stats: {e}")
+        
+        return {
+            'episodes': 0,
+            'total_frames': 0,
+            'best_reward': float('-inf'),
+            'battles_won': 0,
+            'pokemon_caught': 0,
+            'badges_earned': 0,
+            'locations_discovered': []
+        }
+
+# Queste classi vanno FUORI da PokemonAI
+class CachedStateDetector(PokemonStateDetector):
+    # ... codice ...
+
+class MilestoneTracker:
+    # ... codice ...
