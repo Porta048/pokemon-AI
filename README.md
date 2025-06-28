@@ -1,24 +1,24 @@
-# Pokemon AI Agent per Game Boy Color 🎮🤖
+# Pokemon AI Agent per Game Boy Color 
 
-## Cos'è questo progetto? 🌟
+## Cos'è questo progetto? 
 
 Immagina di avere un amico robot che può giocare a Pokémon al posto tuo! Questo progetto è proprio questo: un'intelligenza artificiale (IA) che impara a giocare ai giochi Pokémon del Game Boy Color da sola.
 
 È come se avessi un cervello digitale che:
-- 👀 Guarda lo schermo del gioco
-- 🧠 Pensa a cosa fare
-- 🎯 Preme i pulsanti giusti
-- 📈 Diventa sempre più bravo giocando
+-  Guarda lo schermo del gioco
+-  Pensa a cosa fare
+-  Preme i pulsanti giusti
+-  Diventa sempre più bravo giocando
 
 L'obiettivo è vedere come un computer può imparare a catturare Pokémon, vincere battaglie e completare il gioco attraverso tentativi ed errori, proprio come farebbe un bambino che impara a giocare!
 
 ---
 
-## Come funziona il nostro Robot Pokémon? 🤖⚡
+## Come funziona il nostro Robot Pokémon? 
 
 Il nostro agente AI è composto da 4 "cervelli" diversi che lavorano insieme:
 
-### 1. 🧠 **PokemonMemoryReader** - Il Lettore di Memoria
+### 1.  **PokemonMemoryReader** - Il Lettore di Memoria
 **Cosa fa:** È come avere degli occhi speciali che possono vedere dentro il gioco!
 
 **Come funziona (spiegato semplice):**
@@ -48,7 +48,7 @@ Il nostro agente AI è composto da 4 "cervelli" diversi che lavorano insieme:
 - `detect_dialogue()`: "Qualcuno sta parlando?" - Trova le finestre di dialogo
 - `detect_blocked_movement()`: "Siamo bloccati?" - Capisce se non possiamo muoverci
 
-### 3. 🧠💪 **PokemonDQN** - Il Cervello Intelligente
+### 3.  **PokemonDQN** - Il Cervello Intelligente
 **Cosa fa:** È il vero cervello del robot, una rete neurale che impara a giocare!
 
 **Come funziona (spiegato semplice):**
@@ -61,7 +61,7 @@ Il nostro agente AI è composto da 4 "cervelli" diversi che lavorano insieme:
 - **Dueling DQN**: Ha due parti del cervello - una che valuta quanto è buona la situazione, e una che valuta quanto è buona ogni azione
 - **Convolutional Layers**: Strati speciali che sono bravi a riconoscere immagini (come riconoscere un Pokémon sullo schermo)
 
-### 4. 🎮 **PokemonAI** - Il Giocatore Robot
+### 4.  **PokemonAI** - Il Giocatore Robot
 **Cosa fa:** È il "giocatore" vero e proprio che mette tutto insieme!
 
 **Come funziona (spiegato semplice):**
@@ -80,7 +80,7 @@ Il nostro agente AI è composto da 4 "cervelli" diversi che lavorano insieme:
 - `replay()`: "Studia le esperienze passate" - Impara dalle esperienze salvate
 - `play()`: "Gioca!" - Il loop principale dove tutto succede
 
-## Strategie Intelligenti del Robot 🎯
+## Strategie Intelligenti del Robot 
 
 ### Sistema di Ricompense (Come diamo i voti al robot)
 **Cose buone (+punti):**
@@ -102,7 +102,7 @@ Il nostro agente AI è composto da 4 "cervelli" diversi che lavorano insieme:
 - **Nell'esplorazione:** Evita di ripetere le stesse mosse per non rimanere bloccato
 - **Con poca vita:** Cerca di usare pozioni o andare al Centro Pokémon
 
-## Tecnologie Avanzate Usate 🔬
+## Tecnologie Avanzate Usate 
 
 ### Deep Q-Network (DQN)
 - **Cosa è:** Un tipo speciale di intelligenza artificiale che impara giocando
@@ -119,14 +119,14 @@ Il nostro agente AI è composto da 4 "cervelli" diversi che lavorano insieme:
 - **Come funziona:** Un cervello propone, l'altro valuta
 - **Perché è meglio:** Evita di essere troppo ottimista sulle sue azioni
 
-## Come far partire il Robot Pokémon? 🚀
+## Come far partire il Robot Pokémon? 
 
 ### Preparazione (Cosa ti serve)
 1. **Python installato** sul tuo computer (è il linguaggio che parla il robot)
 2. **Un file ROM di Pokémon** (il gioco vero e proprio, con estensione `.gbc`)
-3. **Un po' di pazienza** - il robot deve imparare! 😊
+3. **Un po' di pazienza** - il robot deve imparare
 
-### Installazione Facile 📦
+### Installazione Facile 
 
 **Passo 1:** Apri il terminale (la "finestra nera" dove scrivi comandi)
 
@@ -140,7 +140,7 @@ pip install pyboy numpy Pillow keyboard torch opencv-python
 pip install torch torchvision
 ```
 
-### Avvio del Robot 🎮
+### Avvio del Robot 
 
 **Passo 1:** Vai nella cartella del progetto e scrivi:
 ```bash
@@ -151,23 +151,23 @@ python gbc_ai_agent.py
 - Scrivi il percorso completo del file `.gbc`
 - Esempio: `C:\Giochi\Pokemon_Rosso.gbc`
 
-**Passo 3:** Guarda il robot giocare! 🎉
+**Passo 3:** Guarda il robot giocare! 
 
-### Controlli Durante il Gioco 🎮
+### Controlli Durante il Gioco 
 - **ESC**: Ferma il robot ("Basta giocare!")
 - **SPAZIO**: Metti in pausa ("Aspetta un momento!")
 - **R**: Mostra un report dettagliato ("Come stai andando?")
 - **S**: Salva i progressi ("Ricorda tutto!")
 
-## Cosa Succede Quando il Robot Gioca? 🔄
+## Cosa Succede Quando il Robot Gioca? 
 
 ### Il Ciclo di Apprendimento (spiegato semplice)
-1. **👀 Osserva**: Il robot guarda lo schermo del gioco
-2. **🧠 Pensa**: Usa tutti i suoi "cervelli" per decidere cosa fare
-3. **🎯 Agisce**: Preme un pulsante (su, giù, A, B, ecc.)
-4. **📊 Valuta**: Controlla se ha fatto bene o male
-5. **💾 Ricorda**: Salva l'esperienza per imparare
-6. **🔄 Ripete**: Ricomincia dal punto 1
+1. ** Osserva**: Il robot guarda lo schermo del gioco
+2. ** Pensa**: Usa tutti i suoi "cervelli" per decidere cosa fare
+3. ** Agisce**: Preme un pulsante (su, giù, A, B, ecc.)
+4. ** Valuta**: Controlla se ha fatto bene o male
+5. ** Ricorda**: Salva l'esperienza per imparare
+6. ** Ripete**: Ricomincia dal punto 1
 
 ### Cosa Impara il Robot? 📚
 - **Esplorare**: Come muoversi nella mappa senza rimanere bloccato
@@ -176,7 +176,7 @@ python gbc_ai_agent.py
 - **Strategia**: Quali Pokémon usare in battaglia
 - **Gestione**: Come usare soldi e oggetti in modo intelligente
 
-## File Importanti che Crea il Robot 📁
+## File Importanti che Crea il Robot 
 
 ### Cartella `ai_saves_[nome_gioco]/`
 Il robot crea una cartella speciale dove salva tutto:
@@ -185,7 +185,7 @@ Il robot crea una cartella speciale dove salva tutto:
 - **`stats.json`**: Le statistiche di gioco (medaglie, Pokémon catturati, ecc.)
 - **`checkpoints.pkl`**: Punti di salvataggio per non perdere i progressi
 
-### Cosa Significano i Numeri sullo Schermo? 📊
+### Cosa Significano i Numeri sullo Schermo? 
 - **Episode**: Quante "partite" ha giocato il robot
 - **Frame**: Quanti "fotogrammi" ha visto (come i frame di un film)
 - **Reward**: I punti totali guadagnati
@@ -193,16 +193,16 @@ Il robot crea una cartella speciale dove salva tutto:
 - **Badges**: Quante medaglie ha vinto
 - **Pokemon Caught**: Quanti Pokémon ha catturato
 
-## Perché è Così Figo? 🌟
+## Perché è Così Figo? 
 
 Questo progetto è speciale perché:
-- **🎯 È specifico per Pokémon**: Non è un robot generico, sa esattamente come funzionano i giochi Pokémon
-- **🧠 Impara davvero**: Non segue regole fisse, ma impara dall'esperienza
-- **👁️ Vede tutto**: Può leggere la memoria del gioco E guardare lo schermo
-- **🎮 È completo**: Gestisce battaglie, esplorazione, cattura, tutto!
-- **📈 Migliora sempre**: Più gioca, più diventa bravo
+- ** È specifico per Pokémon**: Non è un robot generico, sa esattamente come funzionano i giochi Pokémon
+- ** Impara davvero**: Non segue regole fisse, ma impara dall'esperienza
+- ** Vede tutto**: Può leggere la memoria del gioco E guardare lo schermo
+- ** È completo**: Gestisce battaglie, esplorazione, cattura, tutto!
+- ** Migliora sempre**: Più gioca, più diventa bravo
 
-## Curiosità Tecniche (per i più Curiosi) 🤓
+## Curiosità Tecniche 
 
 ### Architettura del Cervello
 - **Input**: Schermo 160x144 pixel + dati dalla memoria
@@ -217,6 +217,6 @@ Questo progetto è speciale perché:
 
 ---
 
-**Divertiti a guardare il tuo robot Pokémon diventare un vero maestro! 🏆🤖**
+**Divertiti a guardare il tuo robot Pokémon diventare un vero maestro**
 
-*Ricorda: l'intelligenza artificiale è come un bambino che impara - ci vuole tempo e pazienza, ma i risultati possono essere sorprendenti!* ✨
+*Ricorda: l'intelligenza artificiale è come un bambino che impara - ci vuole tempo e pazienza, ma i risultati possono essere sorprendenti
